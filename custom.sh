@@ -6,6 +6,9 @@ sudo chmod -R 755 /etc/datadog-agent/datadog.yaml
 
 
 sudo sed -i 's/# logs_enabled: false/logs_enabled: true/g' /etc/datadog-agent/datadog.yaml
+sed -i "0,/# env:.*/s//env: $2 /" /etc/datadog-agent/datadog.yaml
+
+
 
 sudo systemctl restart datadog-agent
 
